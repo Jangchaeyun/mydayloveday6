@@ -1,4 +1,4 @@
-!SESSION 2023-12-27 23:14:58.358 -----------------------------------------------
+!SESSION 2023-12-28 22:03:01.835 -----------------------------------------------
 eclipse.buildId=4.21.0.202312011804
 java.version=17.0.9
 java.vendor=Eclipse Adoptium
@@ -6,61 +6,23 @@ BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
 Framework arguments:  -product org.springframework.boot.ide.branding.sts4
 Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.springframework.boot.ide.branding.sts4
 
-!ENTRY org.eclipse.emf.ecore 2 0 2023-12-27 23:15:00.520
+!ENTRY org.eclipse.emf.ecore 2 0 2023-12-28 22:03:03.327
 !MESSAGE Both 'org.eclipse.jst.j2ee.core' and 'org.eclipse.jst.j2ee.core' register a package for 'application.xmi'
 
-!ENTRY org.eclipse.jface 2 0 2023-12-27 23:17:24.925
-!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
-!SUBENTRY 1 org.eclipse.jface 2 0 2023-12-27 23:17:24.925
-!MESSAGE A conflict occurred for CTRL+SHIFT+T:
-Binding(CTRL+SHIFT+T,
-	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
-		Open a type in a Java editor,
-		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
-		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.navigate.open.type"),
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.contexts.window,,,system)
-Binding(CTRL+SHIFT+T,
-	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
-		,
-		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
-		WorkbenchHandlerServiceHandler("org.eclipse.lsp4e.symbolinworkspace"),
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.contexts.window,,,system)
-
-!ENTRY org.eclipse.egit.ui 2 0 2023-12-27 23:17:34.527
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\zzang'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2023-12-27 23:22:25.118 -----------------------------------------------
-eclipse.buildId=4.21.0.202312011804
-java.version=17.0.9
-java.vendor=Eclipse Adoptium
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
-Framework arguments:  -product org.springframework.boot.ide.branding.sts4 -product org.springframework.boot.ide.branding.sts4
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.springframework.boot.ide.branding.sts4 -data file:/D:/Project/mydayloveday6/backend/ -product org.springframework.boot.ide.branding.sts4
-
-!ENTRY org.eclipse.emf.ecore 2 0 2023-12-27 23:22:32.184
-!MESSAGE Both 'org.eclipse.jst.j2ee.core' and 'org.eclipse.jst.j2ee.core' register a package for 'application.xmi'
-
-!ENTRY org.eclipse.ui 2 0 2023-12-27 23:23:03.048
+!ENTRY org.eclipse.ui 2 0 2023-12-28 22:03:32.187
 !MESSAGE Warnings while parsing the images from the 'org.eclipse.ui.commandImages' extension point.
-!SUBENTRY 1 org.eclipse.ui 2 0 2023-12-27 23:23:03.049
+!SUBENTRY 1 org.eclipse.ui 2 0 2023-12-28 22:03:32.187
 !MESSAGE Cannot bind to an undefined command: plug-in='com.genuitec.eclipse.theming.ui', id='com.genuitec.myeclipse.help.darktheme.commandid'
 
-!ENTRY com.genuitec.eclipse.theming.ui 1 0 2023-12-27 23:23:04.093
+!ENTRY com.genuitec.eclipse.theming.ui 1 0 2023-12-28 22:03:32.840
 !MESSAGE A DevStyle Theme is being activated on this workspace; preparing colors and configuration
 
-!ENTRY com.genuitec.eclipse.theming.ui 1 0 2023-12-27 23:23:04.149
+!ENTRY com.genuitec.eclipse.theming.ui 1 0 2023-12-28 22:03:32.877
 !MESSAGE DevStyle has archived current color configurations to alternate preferences - will be restored when switching out of the DevStyle Theme
 
-!ENTRY org.eclipse.jface 2 0 2023-12-27 23:23:05.716
+!ENTRY org.eclipse.jface 2 0 2023-12-28 22:03:33.628
 !MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
-!SUBENTRY 1 org.eclipse.jface 2 0 2023-12-27 23:23:05.716
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-12-28 22:03:33.628
 !MESSAGE A conflict occurred for CTRL+SHIFT+T:
 Binding(CTRL+SHIFT+T,
 	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
@@ -79,26 +41,26 @@ Binding(CTRL+SHIFT+T,
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,,system)
 
-!ENTRY org.eclipse.egit.ui 2 0 2023-12-27 23:23:14.641
+!ENTRY org.eclipse.egit.ui 2 0 2023-12-28 22:03:37.893
 !MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
 user global configuration and to define the default location to store repositories: 'C:\Users\zzang'. If this is
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
 
-!ENTRY org.springframework.tooling.boot.ls 1 0 2023-12-27 23:30:20.569
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-12-28 22:06:56.188
 !MESSAGE Classpath changed for project: mydayloveday6
 
-!ENTRY org.springframework.tooling.boot.ls 1 0 2023-12-27 23:30:20.573
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-12-28 22:06:56.212
 !MESSAGE Boot project ADDED: mydayloveday6
 
-!ENTRY org.springframework.tooling.boot.ls 1 0 2023-12-27 23:30:20.576
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-12-28 22:06:56.215
 !MESSAGE Starting Boot LS...
 
-!ENTRY org.springframework.tooling.boot.ls 1 0 2023-12-27 23:30:20.620
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-12-28 22:06:56.248
 !MESSAGE Started Boot LS process
 
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-12-27 23:30:20.646
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-12-28 22:06:56.278
 !MESSAGE Command list starting LS: org.springframework.tooling.boot.ls
 START:
 C:\Program Files\spring-tool-suite-4-4.21.0.RELEASE-e4.30.0-win32.win32.x86_64.self-extracting\sts-4.21.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.9.v20231028-0858\jre\bin\javaw.exe
@@ -111,51 +73,57 @@ C:\Program Files\spring-tool-suite-4-4.21.0.RELEASE-e4.30.0-win32.win32.x86_64.s
 -XX:TieredStopAtLevel=1
 -Xlog:jni+resolve=off
 -Dspring.config.location=file:C:\Program Files\spring-tool-suite-4-4.21.0.RELEASE-e4.30.0-win32.win32.x86_64.self-extracting\sts-4.21.0.RELEASE\plugins\org.springframework.tooling.boot.ls_1.51.0.202312011752\servers\spring-boot-language-server\BOOT-INF\classes\application.properties
--XX:ErrorFile=D:/Project/mydayloveday6/backend/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1703687420645
+-XX:ErrorFile=D:/Project/mydayloveday6/backend/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1703768816271
 org.springframework.ide.vscode.boot.app.BootLanguageServerBootApp
 --languageserver.hover-timeout=225
 END
 
-!ENTRY org.springframework.tooling.boot.ls 1 0 2023-12-27 23:30:20.651
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-12-28 22:06:56.283
 !MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
 
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-12-27 23:30:20.665
-!MESSAGE Started org.springframework.tooling.boot.ls LS process 8448
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-12-28 22:06:56.301
+!MESSAGE Started org.springframework.tooling.boot.ls LS process 18548
 
-!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-12-27 23:30:32.909
-!MESSAGE executing callback sts4.classpath.BKVAgOGr FAILED
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-12-28 22:06:58.614
+!MESSAGE Classpath changed for project: mydayloveday6
 
-!ENTRY org.springframework.tooling.ls.eclipse.commons 4 0 2023-12-27 23:30:32.915
-!MESSAGE java.util.concurrent.RejectedExecutionException: Task java.util.concurrent.CompletableFuture$UniCompose@41a84da2 rejected from java.util.concurrent.ThreadPoolExecutor@6c580f6e[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-12-28 22:07:03.380
+!MESSAGE Classpath changed for project: mydayloveday6
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-12-28 22:07:03.676
+!MESSAGE Classpath changed for project: mydayloveday6
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-12-28 22:07:12.535
+!MESSAGE Classpath changed for project: mydayloveday6
+
+!ENTRY org.eclipse.jface 2 0 2023-12-28 22:11:02.957
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-12-28 22:11:02.957
+!MESSAGE A conflict occurred for CTRL+SHIFT+C:
+Binding(CTRL+SHIFT+C,
+	ParameterizedCommand(Command(org.eclipse.tm4e.languageconfiguration.toggleLineCommentCommand,Toggle Line Comment,
+		,
+		Category(org.eclipse.tm4e.languageconfiguration.category,TM4E Language Configuration,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.tm4e.languageconfiguration.toggleLineCommentCommand"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+SHIFT+C,
+	ParameterizedCommand(Command(org.springframework.tooling.boot.ls.ToggleComment,Toggle Comment,
+		,
+		Category(org.springframework.ide.eclipse.commands,Spring Generic Text Editor,Spring Language Server Commands,true),
+		WorkbenchHandlerServiceHandler("org.springframework.tooling.boot.ls.ToggleComment"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+
+!ENTRY org.eclipse.lsp4e 2 0 2023-12-28 22:14:05.167
+!MESSAGE Could not resolve completion items due to timeout after 500 milliseconds in `completionItem/resolve`
 !STACK 0
-java.util.concurrent.ExecutionException: java.util.concurrent.RejectedExecutionException: Task java.util.concurrent.CompletableFuture$UniCompose@41a84da2 rejected from java.util.concurrent.ThreadPoolExecutor@6c580f6e[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
-	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:396)
-	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
-	at org.springframework.tooling.ls.eclipse.commons.LSP4ECommandExecutor.executeClientCommand(LSP4ECommandExecutor.java:31)
-	at org.springframework.tooling.jdt.ls.commons.classpath.SendClasspathNotificationsJob.flush(SendClasspathNotificationsJob.java:178)
-	at org.springframework.tooling.jdt.ls.commons.classpath.SendClasspathNotificationsJob.run(SendClasspathNotificationsJob.java:149)
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+	at org.eclipse.lsp4e.operations.completion.LSCompletionProposal.getAdditionalProposalInfo(LSCompletionProposal.java:330)
+	at org.eclipse.lsp4e.operations.completion.LSCompletionProposal.getAdditionalProposalInfo(LSCompletionProposal.java:1)
+	at org.eclipse.jface.text.contentassist.AdditionalInfoController$Timer$2$1.run(AdditionalInfoController.java:116)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
-Caused by: java.util.concurrent.RejectedExecutionException: Task java.util.concurrent.CompletableFuture$UniCompose@41a84da2 rejected from java.util.concurrent.ThreadPoolExecutor@6c580f6e[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$AbortPolicy.rejectedExecution(ThreadPoolExecutor.java:2065)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.reject(ThreadPoolExecutor.java:833)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.execute(ThreadPoolExecutor.java:1365)
-	at java.base/java.util.concurrent.Executors$DelegatedExecutorService.execute(Executors.java:721)
-	at java.base/java.util.concurrent.CompletableFuture.uniComposeStage(CompletableFuture.java:1184)
-	at java.base/java.util.concurrent.CompletableFuture.thenComposeAsync(CompletableFuture.java:2320)
-	at org.eclipse.lsp4e.LanguageServerWrapper.executeImpl(LanguageServerWrapper.java:814)
-	at org.eclipse.lsp4e.LanguageServers.lambda$23(LanguageServers.java:441)
-	at java.base/java.util.concurrent.CompletableFuture.uniApplyNow(CompletableFuture.java:684)
-	at java.base/java.util.concurrent.CompletableFuture.uniApplyStage(CompletableFuture.java:662)
-	at java.base/java.util.concurrent.CompletableFuture.thenApply(CompletableFuture.java:2168)
-	at org.eclipse.lsp4e.LanguageServers.lambda$22(LanguageServers.java:439)
-	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
-	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
-	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
-	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
-	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:575)
-	at java.base/java.util.stream.AbstractPipeline.evaluateToArrayNode(AbstractPipeline.java:260)
-	at java.base/java.util.stream.ReferencePipeline.toArray(ReferencePipeline.java:616)
-	at org.eclipse.lsp4e.LanguageServers.computeFirst(LanguageServers.java:183)
-	at org.eclipse.lsp4e.LanguageServers.computeFirst(LanguageServers.java:148)
-	at org.springframework.tooling.ls.eclipse.commons.LSP4ECommandExecutor.executeClientCommand(LSP4ECommandExecutor.java:29)
-	... 3 more
