@@ -1,5 +1,7 @@
 package com.myday.models;
 
+import jakarta.persistence.Entity;
+
 public class User {
 	private Integer id;
 	private String firstName;
@@ -7,6 +9,7 @@ public class User {
 	private String email;
 	private String password;
 	
+	@Entity
 	public User() {
 		
 	}
