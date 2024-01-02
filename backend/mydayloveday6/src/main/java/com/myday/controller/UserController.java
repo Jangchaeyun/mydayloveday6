@@ -3,6 +3,7 @@ package com.myday.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,29 +13,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.myday.models.User;
+import com.myday.repository.UserRepository;
 
 @RestController
 public class UserController {
-	@GetMapping("/users")
-	public List<User> getUsers() {
-		List<User> users = new ArrayList<>();
-		
-		User user1 = new User(1, "myday", "love", "mydayloveday6@gmail.com", "12345");
-		User user2 = new User(2, "zzang", "sally", "zzangsally6@gmail.com", "67890");
-		
-		users.add(user1);
-		users.add(user2);
-		
-		return users;
-	}
 	
-	@GetMapping("/users/{userId}")
-	public User getUserById(@PathVariable("userId") Integer id) {
-		User user1 = new User(1, "myday", "love", "mydayloveday6@gmail.com", "12345");
-		user1.setId(id);
-		
-		return user1;
-	}
+	@Autowired
+	UserRepository userRepository;
 	
 	@PostMapping("/users")
 	public User createUser(@RequestBody User user) {
@@ -45,7 +30,24 @@ public class UserController {
 		newUser.setPassword(user.getPassword());
 		newUser.setId(user.getId());
 		
-		return newUser;
+		User savedUser = userRepository.save(newUser);
+		
+		return savedUser;
+	}
+	
+	@GetMapping("/users")
+	public List<User> getUsers() {
+		List<User> users = userRepository.findAll();
+		
+		return users;
+	}
+	
+	@GetMapping("/users/{userId}")
+	public User getUserById(@PathVariable("userId") Integer id) {
+		User user1 = new User(1, "myday", "love", "mydayloveday6@gmail.com", "12345");
+		user1.setId(id);
+		
+		return user1;
 	}
 	
 	@PutMapping("/users")

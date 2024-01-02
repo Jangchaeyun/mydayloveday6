@@ -1,15 +1,22 @@
 package com.myday.models;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name="users")
 public class User {
+	@Id
 	private Integer id;
+	@Column(name="my_name")
 	private String firstName;
 	private String lastName;
+	@Column(name="gmail")
 	private String email;
 	private String password;
 	
-	@Entity
 	public User() {
 		
 	}
