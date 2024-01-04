@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.myday.models.User;
 import com.myday.repository.UserRepository;
+import com.myday.service.UserService;
 
 @RestController
 public class UserController {
@@ -22,16 +23,12 @@ public class UserController {
 	@Autowired
 	UserRepository userRepository;
 	
+	@Autowired
+	UserService userService;
+	
 	@PostMapping("/users")
 	public User createUser(@RequestBody User user) {
-		User newUser = new User();
-		newUser.setEmail(user.getEmail());
-		newUser.setFirstName(user.getFirstName());
-		newUser.setLastName(user.getLastName());
-		newUser.setPassword(user.getPassword());
-		newUser.setId(user.getId());
-		
-		User savedUser = userRepository.save(newUser);
+		User savedUser = userService.registerUser(user);
 		
 		return savedUser;
 	}
@@ -45,13 +42,7 @@ public class UserController {
 	
 	@GetMapping("/users/{userId}")
 	public User getUserById(@PathVariable("userId") Integer id) throws Exception {
-		Optional<User> user = userRepository.findById(id);
-		
-		if (user.isPresent()) {
-			return user.get();
-		}
-		
-		throw new Exception("user not exist with userid  " + id);
+		return null;
 	}
 	
 	@PutMapping("/users/{userId}")
@@ -80,7 +71,15 @@ public class UserController {
 	}
 	
 	@DeleteMapping("/users/{userId}")
-	public String deleteUser(@PathVariable("userId") Integer userId) {
+	public String deleteUser(@PathVariable("userId") Integer userId) throws Exception {
+		Optional<User> user = userRepository.findById(userId);
+		
+		if (user.isEmpty()) {
+			throw new Exception("user not exit with id: " + userId );
+		}
+		
+		userRepository.delete(user.get());
+		
 		return "user deleted successfully with id " + userId;
 	}
 }
