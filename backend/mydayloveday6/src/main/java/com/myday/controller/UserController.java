@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.myday.models.User;
@@ -42,44 +43,27 @@ public class UserController {
 	
 	@GetMapping("/users/{userId}")
 	public User getUserById(@PathVariable("userId") Integer id) throws Exception {
-		return null;
+		User user = userService.findUserById(id);
+		return user;
 	}
 	
 	@PutMapping("/users/{userId}")
 	public User updateUser(@RequestBody User user, @PathVariable Integer userId) throws Exception {
-		Optional<User> user1 = userRepository.findById(userId);
+		User updateUser = userService.updateUser(user, userId);
 		
-		if (user1.isEmpty()) {
-			throw new Exception("user not exit with id: " + userId );
-		}
-		
-		User oldUser = user1.get();
-		
-		if (user.getFirstName() != null) {
-			oldUser.setFirstName(user.getFirstName());
-		}
-		if (user.getLastName() != null) {
-			oldUser.setLastName(user.getLastName());
-		}
-		if (user.getEmail() != null) {
-			oldUser.setEmail(user.getEmail());
-		}
-		
-		User updatedUser = userRepository.save(oldUser);
-		
-		return  updatedUser;
+		return updateUser;
 	}
 	
-	@DeleteMapping("/users/{userId}")
-	public String deleteUser(@PathVariable("userId") Integer userId) throws Exception {
-		Optional<User> user = userRepository.findById(userId);
+	@PutMapping("/users/${userId1}/${userId2}")
+	public User followUserHandler(@PathVariable Integer userId1, @PathVariable Integer userId2) throws Exception {
+		User user = userService.followUser(userId1, userId2);
+		return user;
+	}
+	
+	@GetMapping("/users/search")
+	public List<User> searchUser(@RequestParam("query") String query) {
+		List<User> user = userService.searchUser(query);
 		
-		if (user.isEmpty()) {
-			throw new Exception("user not exit with id: " + userId );
-		}
-		
-		userRepository.delete(user.get());
-		
-		return "user deleted successfully with id " + userId;
+		return users;
 	}
 }
