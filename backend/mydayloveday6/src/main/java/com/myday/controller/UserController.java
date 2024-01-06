@@ -54,7 +54,7 @@ public class UserController {
 		return updateUser;
 	}
 	
-	@PutMapping("/users/${userId1}/${userId2}")
+	@PutMapping("/users/follow/{userId1}/{userId2}")
 	public User followUserHandler(@PathVariable Integer userId1, @PathVariable Integer userId2) throws Exception {
 		User user = userService.followUser(userId1, userId2);
 		return user;
@@ -62,7 +62,7 @@ public class UserController {
 	
 	@GetMapping("/users/search")
 	public List<User> searchUser(@RequestParam("query") String query) {
-		List<User> user = userService.searchUser(query);
+		List<User> users = userService.searchUser(query);
 		
 		return users;
 	}
