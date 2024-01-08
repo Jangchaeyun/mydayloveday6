@@ -26,12 +26,12 @@
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="com.myday.service.PostService"/>
     <fullyQualifiedTypeName name="jakarta.persistence.PostRemove"/>
     <fullyQualifiedTypeName name="com.myday.repository.PostRepository"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
-    <fullyQualifiedTypeName name="com.myday.models.Post"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="com.myday.models.User"/>
     <fullyQualifiedTypeName name="com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer"/>
+    <fullyQualifiedTypeName name="com.myday.models.Post"/>
+    <fullyQualifiedTypeName name="com.myday.service.PostService"/>
 </qualifiedTypeNameHistroy>

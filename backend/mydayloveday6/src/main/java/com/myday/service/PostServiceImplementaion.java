@@ -1,6 +1,7 @@
 package com.myday.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,8 +46,11 @@ public class PostServiceImplementaion implements PostService {
 	}
 
 	@Override
-	public Post findPostById(Integer postId) {
-		// TODO Auto-generated method stub
+	public Post findPostById(Integer postId) throws Exception {
+		Optional<Post> opt = postRepository.findById(postId);
+		if (opt.isEmpty()) {
+			throw new Exception("post not fount with id" + postId);
+		}
 		return null;
 	}
 
