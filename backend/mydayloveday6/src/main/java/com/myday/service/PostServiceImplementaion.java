@@ -10,6 +10,7 @@ import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.myday.models.Post;
 import com.myday.models.User;
 import com.myday.repository.PostRepository;
+import com.myday.repository.UserRepository;
 
 @Service
 public class PostServiceImplementaion implements PostService {
@@ -18,6 +19,8 @@ public class PostServiceImplementaion implements PostService {
 	PostRepository postRepository;
 	@Autowired
 	UserService userService;
+	@Autowired
+	UserRepository userRepository;
 
 	@Override
 	public Post createNewPost(Post post, Integer userId) throws Exception {
@@ -34,15 +37,19 @@ public class PostServiceImplementaion implements PostService {
 	}
 
 	@Override
-	public String deletePost(Integer postId, Integer userId) {
-		// TODO Auto-generated method stub
-		return null;
+	public String deletePost(Integer postId, Integer userId) throws Exception {
+		Post post = findPostById(postId);
+		User user = userService.findUserById(userId);
+		
+		if (post.getUser().getId() != user.getId()) {
+			throw new Exception("you can't delete another users post");
+		}
+		return "post deleted successfully";
 	}
 
 	@Override
 	public List<Post> findPostByUserId(Integer userId) {
-		// TODO Auto-generated method stub
-		return null;
+		return postRepository.findPostByUserId(userId);
 	}
 
 	@Override
@@ -51,19 +58,40 @@ public class PostServiceImplementaion implements PostService {
 		if (opt.isEmpty()) {
 			throw new Exception("post not fount with id" + postId);
 		}
-		return null;
+		return opt.get();
 	}
 
 	@Override
 	public List<Post> findAllPost() {
-		// TODO Auto-generated method stub
-		return null;
+		return postRepository.findAll();
 	}
 
 	@Override
-	public Post savedPost(Integer postId, Integer userId) {
-		// TODO Auto-generated method stub
-		return null;
+	public Post savedPost(Integer postId, Integer userId) throws Exception {
+		Post post = findPostById(postId);
+		User user = userService.findUserById(userId);
+		
+		if (user.getSavedPost().contains(post)) {
+			user.getSavedPost().remove(post);
+		}
+		else user.getSavedPost().add(post);
+		userRepository.save(user);
+		return post;
 	}
 	
+	@Override
+	public Post likePost(Integer postId, Integer userId) throws Exception {
+		Post post = findPostById(postId);
+		User user = userService.findUserById(userId);
+		
+		if (post.getLiked().contains(user)) {
+			post.getLiked().remove(user);
+		}
+		else {
+			post.getLiked().add(user);
+		}
+		post.getLiked().add(user);
+		
+		return postRepository.save(post);
+	}
 }
