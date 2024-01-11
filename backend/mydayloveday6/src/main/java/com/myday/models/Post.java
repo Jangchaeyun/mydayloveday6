@@ -8,6 +8,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Post {
@@ -18,7 +20,9 @@ public class Post {
 	private String caption;
 	private String image;
 	private String video;
+	@ManyToOne
 	private User user;
+	@OneToMany
 	private List<User> liked = new ArrayList<>();
 	private LocalDateTime createdAt;
 	
