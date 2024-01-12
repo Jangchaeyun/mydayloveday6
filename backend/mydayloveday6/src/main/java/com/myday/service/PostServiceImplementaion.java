@@ -1,5 +1,6 @@
 package com.myday.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,10 +31,10 @@ public class PostServiceImplementaion implements PostService {
 		Post newPost = new Post();
 		newPost.setCaption(post.getCaption());
 		newPost.setImage(post.getImage());
-//		newPost.setCreatedAt(new LocalDateTime.now());
+		newPost.setCreatedAt(LocalDateTime.now());
 		newPost.setVideo(post.getVideo());
 		newPost.setUser(user);
-		return newPost;
+		return postRepository.save(newPost);
 	}
 
 	@Override
