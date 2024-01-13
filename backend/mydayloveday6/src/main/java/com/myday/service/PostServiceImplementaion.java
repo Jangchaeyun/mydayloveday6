@@ -91,7 +91,6 @@ public class PostServiceImplementaion implements PostService {
 		else {
 			post.getLiked().add(user);
 		}
-		post.getLiked().add(user);
 		
 		return postRepository.save(post);
 	}
