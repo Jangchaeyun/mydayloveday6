@@ -12,7 +12,7 @@ import io.jsonwebtoken.security.Keys;
 
 public class JwtProvider {
 	private static SecretKey key = Keys.hmacShaKeyFor(JwtConstant.SECRET_KEY.getBytes());
-	private String generateToken(Authentication auth) {
+	public static String generateToken(Authentication auth) {
 		String jwt = Jwts.builder()
 				.setIssuer("mydaylove").setIssuedAt(new Date())
 				.setExpiration(new Date(new Date().getTime() + 86400000))

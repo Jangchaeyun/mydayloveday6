@@ -11,6 +11,7 @@ import com.myday.repository.UserRepository;
 
 @Service
 public class UserServiceImplementation implements UserService {
+	
 	@Autowired
 	UserRepository userRepository;
 	
