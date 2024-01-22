@@ -14,7 +14,7 @@ import com.myday.models.User;
 import com.myday.repository.UserRepository;
 
 @Service
-public class CustormerUserDetailsService implements UserDetailsService {
+public class CustomerUserDetailsService implements UserDetailsService {
 	@Autowired
 	private UserRepository userRepository;
 	@Override
