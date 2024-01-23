@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.myday.config.JwtProvider;
 import com.myday.models.User;
 import com.myday.repository.UserRepository;
 
@@ -60,7 +61,7 @@ public class UserServiceImplementation implements UserService {
 
 	@Override
 	public User updateUser(User user, Integer userId) throws Exception {
-Optional<User> user1 = userRepository.findById(userId);
+		Optional<User> user1 = userRepository.findById(userId);
 		
 		if (user1.isEmpty()) {
 			throw new Exception("user not exit with id: " + userId );
@@ -86,6 +87,14 @@ Optional<User> user1 = userRepository.findById(userId);
 	@Override
 	public List<User> searchUser(String query) {
 		return userRepository.searchUser(query);
+	}
+
+	@Override
+	public User findUserByJwt(String jwt) {
+		String email = JwtProvider.getEmailFromJwtToken(jwt);
+		
+		User user = userRepository.findByEmail(email);
+		return user;
 	}
 
 }
