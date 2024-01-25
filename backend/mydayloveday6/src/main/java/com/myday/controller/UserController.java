@@ -49,9 +49,10 @@ public class UserController {
 		return updateUser;
 	}
 	
-	@PutMapping("/api/users/follow/{userId1}/{userId2}")
-	public User followUserHandler(@PathVariable Integer userId1, @PathVariable Integer userId2) throws Exception {
-		User user = userService.followUser(userId1, userId2);
+	@PutMapping("/api/users/follow/{userId2}")
+	public User followUserHandler(@RequestHeader("Authorization") String jwt, @PathVariable Integer userId2) throws Exception {
+		User reqUser = userService.findUserByJwt(jwt);
+		User user = userService.followUser(reqUser.getId(), userId2);
 		return user;
 	}
 	

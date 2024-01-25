@@ -48,15 +48,15 @@ public class UserServiceImplementation implements UserService {
 	}
 
 	@Override
-	public User followUser(Integer userId1, Integer userId2) throws Exception {
-		User user1 = findUserById(userId1);
+	public User followUser(Integer reqUserId, Integer userId2) throws Exception {
+		User reqUser = findUserById(reqUserId);
 		User user2 = findUserById(userId2);
-		user2.getFollowers().add(user1.getId());
-		user1.getFollowings().add(user2.getId());
+		user2.getFollowers().add(reqUser.getId());
+		reqUser.getFollowings().add(user2.getId());
 		
-		userRepository.save(user1);
+		userRepository.save(reqUser);
 		userRepository.save(user2);
-		return user1;
+		return reqUser;
 	}
 
 	@Override
