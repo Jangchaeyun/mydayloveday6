@@ -33,9 +33,9 @@ public class CommentController {
 	}
 	
 	@PutMapping("/api/comments/like/{commentId}")
-	public Comment likeComment(@RequestBody Comment comment,
+	public Comment likeComment(
 			@RequestHeader("Authorization") String jwt,
-			@PathVariable Integer commentId) throws Exception {
+			@PathVariable("commentId") Integer commentId) throws Exception {
 		User user = userService.findUserByJwt(jwt);
 		
 		Comment likedComment = commentService.likeComment(commentId, user.getId());
