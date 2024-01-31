@@ -1,8 +1,10 @@
 package com.myday.service;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.myday.models.Comment;
 import com.myday.models.Post;
@@ -10,6 +12,7 @@ import com.myday.models.User;
 import com.myday.repository.CommentRepository;
 import com.myday.repository.PostRepository;
 
+@Service
 public class CommentServiceImplementation implements CommentService{
 	
 	@Autowired
@@ -39,19 +42,31 @@ public class CommentServiceImplementation implements CommentService{
 		post.getComments().add(savedComment);
 		
 		postRepository.save(post);
+		
 		return savedComment;
 	}
 
 	@Override
-	public Comment findCommentById(Integer commentId) {
-		// TODO Auto-generated method stub
-		return null;
+	public Comment findCommentById(Integer commentId) throws Exception {
+		Optional<Comment> opt = commentRepository.findById(commentId);
+		
+		if (opt.isEmpty()) {
+			throw new Exception("comment not exist");
+		}
+		
+		return opt.get();
 	}
 
 	@Override
-	public Comment likeComment(Integer CommentId) {
-		// TODO Auto-generated method stub
-		return null;
+	public Comment likeComment(Integer CommentId, Integer userId) throws Exception {
+		Comment comment = findCommentById(CommentId);
+		User user = userService.findUserById(userId);
+		
+		if (!comment.getLiked().contains(user)) {
+			comment.getLiked().add(user);
+		}
+		else comment.getLiked().remove(user);
+		
+		return commentRepository.save(comment);
 	}
-
 }
