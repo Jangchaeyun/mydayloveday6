@@ -1,10 +1,12 @@
 applyBackground=false
 approved.defs.file.last.changed.time=1693315978000
-configurationInstallLocation=/C\:/Program Files/spring-tool-suite-4-4.21.0.RELEASE-e4.30.0-win32.win32.x86_64.self-extracting/sts-4.21.0.RELEASE/
+configurationInstallLocation=/C\:/spring-tool-suite-4-4.21.0.RELEASE-e4.30.0-win32.win32.x86_64.self-extracting/sts-4.21.0.RELEASE/
+ct.upsell.display.after=1707140872851
 eclipse.preferences.version=1
 iconcolormode=primary
 includeThemingInOomph=false
-last.download.attempt.time=1706702234324
-lastConfiguration=1706697936582
-newinstall=true
+last.download.attempt.time=1706795271009
+lastConfiguration=1706795199832
+newinstall=false
+showWelcomeDialog=false
 workbench.theme=Dark Gray
