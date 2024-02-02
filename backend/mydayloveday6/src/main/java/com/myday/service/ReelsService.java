@@ -10,5 +10,5 @@ public interface ReelsService {
 	
 	public List<Reels> findAllReels();
 	
-	public List<Reels> findUsersReels(Integer userId);
+	public List<Reels> findUsersReels(Integer userId) throws Exception;
 }

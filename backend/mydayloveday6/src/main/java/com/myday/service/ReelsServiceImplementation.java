@@ -3,11 +3,13 @@ package com.myday.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.myday.models.Reels;
 import com.myday.models.User;
 import com.myday.repository.ReelsRepository;
 
+@Service
 public class ReelsServiceImplementation implements ReelsService {
 	@Autowired
 	private ReelsRepository reelsRepository;
@@ -18,19 +20,22 @@ public class ReelsServiceImplementation implements ReelsService {
 	@Override
 	public Reels createReel(Reels reel, User user) {
 		Reels createReel = new Reels();
-		createReel.setTitle(null);
-		return null;
+		
+		createReel.setTitle(reel.getTitle());
+		createReel.setUser(user);
+		createReel.setVideo(reel.getVideo());
+		
+		return reelsRepository.save(createReel);
 	}
 
 	@Override
 	public List<Reels> findAllReels() {
-		// TODO Auto-generated method stub
-		return null;
+		return reelsRepository.findAll();
 	}
 
 	@Override
-	public List<Reels> findUsersReels(Integer userId) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Reels> findUsersReels(Integer userId) throws Exception {
+		userService.findUserById(userId);
+		return reelsRepository.findByUserId(userId);
 	}
 }
