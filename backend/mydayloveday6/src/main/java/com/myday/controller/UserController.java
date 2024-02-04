@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.myday.exceptions.UserException;
 import com.myday.models.User;
 import com.myday.repository.UserRepository;
 import com.myday.service.UserService;
@@ -36,13 +37,13 @@ public class UserController {
 	}
 	
 	@GetMapping("/api/users/{userId}")
-	public User getUserById(@PathVariable("userId") Integer id) throws Exception {
+	public User getUserById(@PathVariable("userId") Integer id) throws UserException {
 		User user = userService.findUserById(id);
 		return user;
 	}
 	
 	@PutMapping("/api/users")
-	public User updateUser(@RequestHeader("Authorization") String jwt, @RequestBody User user) throws Exception {
+	public User updateUser(@RequestHeader("Authorization") String jwt, @RequestBody User user) throws UserException {
 		User reqUser = userService.findUserByJwt(jwt);
 		User updateUser = userService.updateUser(user, reqUser.getId());
 		
@@ -50,7 +51,7 @@ public class UserController {
 	}
 	
 	@PutMapping("/api/users/follow/{userId2}")
-	public User followUserHandler(@RequestHeader("Authorization") String jwt, @PathVariable Integer userId2) throws Exception {
+	public User followUserHandler(@RequestHeader("Authorization") String jwt, @PathVariable Integer userId2) throws UserException {
 		User reqUser = userService.findUserByJwt(jwt);
 		User user = userService.followUser(reqUser.getId(), userId2);
 		return user;
