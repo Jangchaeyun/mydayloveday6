@@ -6,8 +6,8 @@ import * as Yup from "yup";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
+import { useDispatch } from "react-redux";
+import { registerUserAction } from "../../Redux/Auth/auth.action";
 
 const initialValues = {
   firstName: "",
@@ -24,9 +24,11 @@ const validationSchema = {
 };
 const Register = () => {
   const [gender, setGender] = useState("");
+  const dispatch = useDispatch();
   const handleSubmit = (values) => {
     values.gender = gender;
     console.log("handle submit", values);
+    dispatch(registerUserAction({ data: values }));
   };
   const handleChange = (event) => {
     setGender(event.target.value);
