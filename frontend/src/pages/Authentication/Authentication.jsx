@@ -20,7 +20,7 @@ const Authentication = () => {
           <div className="px-20 flex flex-col justify-center h-full">
             <Card className="card p-8">
               <div className="flex flex-col items-center mb-5 space-y-1">
-                <h1 className="logo text-center">MydayLoveDay6</h1>
+                <h1 className="logo text-center text-xl">MydayLoveDay6</h1>
                 <p className="text-center text-sm w-[70%]">
                   친구 및 가족과 함께 사진, 비디오 및 메시지를 캡처, 편집 및
                   공유할 수 있는 간단하고 재미있는 커뮤니티
