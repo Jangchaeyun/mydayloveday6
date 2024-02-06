@@ -1,5 +1,6 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import * as Yup from "yup";
@@ -25,6 +26,7 @@ const validationSchema = {
 const Register = () => {
   const [gender, setGender] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleSubmit = (values) => {
     values.gender = gender;
     console.log("handle submit", values);
@@ -138,6 +140,12 @@ const Register = () => {
           </Button>
         </Form>
       </Formik>
+      <div className="flex gap-5 items-center justify-center pt-5">
+        <p>이미 계정이 있다면?</p>
+        <Button onClick={() => navigate("/login")} color="success">
+          로그인
+        </Button>
+      </div>
     </>
   );
 };

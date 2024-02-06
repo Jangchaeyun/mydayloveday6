@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { loginUserAction } from "../../Redux/Auth/auth.action";
+import { useNavigate } from "react-router-dom";
 
 const initialValues = { email: "", password: "" };
 const validationSchema = {
@@ -16,6 +17,7 @@ const validationSchema = {
 const Login = () => {
   const [formValue, setFormValue] = useState();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleSubmit = (values) => {
     console.log("handle submit", values);
     dispatch(loginUserAction({ data: values }));
@@ -71,6 +73,12 @@ const Login = () => {
           </Button>
         </Form>
       </Formik>
+      <div className="flex gap-5 items-center justify-center pt-5">
+        <p>계정이 없다면?</p>
+        <Button onClick={() => navigate("/register")} color="success">
+          회원가입
+        </Button>
+      </div>
     </>
   );
 };

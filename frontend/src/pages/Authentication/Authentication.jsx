@@ -1,4 +1,5 @@
 import React from "react";
+import { Route, Routes } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import Login from "./Login";
@@ -25,8 +26,11 @@ const Authentication = () => {
                   공유할 수 있는 간단하고 재미있는 커뮤니티
                 </p>
               </div>
-              {/* <Login /> */}
-              <Register />
+              <Routes>
+                <Route path="/" element={<Login />}></Route>
+                <Route path="/login" element={<Login />}></Route>
+                <Route path="/register" element={<Register />}></Route>
+              </Routes>
             </Card>
           </div>
         </Grid>
