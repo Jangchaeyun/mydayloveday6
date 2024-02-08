@@ -5,8 +5,10 @@ import ImageIcon from "@mui/icons-material/Image";
 import VideocamIcon from "@mui/icons-material/Videocam";
 import StoryCircle from "./StoryCircle";
 import ArticleIcon from "@mui/icons-material/Article";
+import PostCard from "../Post/PostCard";
 
 const story = [1, 1, 1, 1, 1, 1];
+const posts = [1, 1, 1, 1, 1, 1, 1];
 const MiddlePart = () => {
   const handleOpenCreatePostModal = () => {
     console.log("open post model");
@@ -54,10 +56,15 @@ const MiddlePart = () => {
             <IconButton color="success" onClick={handleOpenCreatePostModal}>
               <ArticleIcon />
             </IconButton>
-            <span>기사 쓰기</span>
+            <span>글 쓰기</span>
           </div>
         </div>
       </Card>
+      <div className="mt-5 space-y-5">
+        {posts.map((item) => (
+          <PostCard />
+        ))}
+      </div>
     </div>
   );
 };
