@@ -10,6 +10,7 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 
 const HomePage = () => {
   const location = useLocation();
+
   return (
     <div className="px-20">
       <Grid container spacing={0}>
@@ -31,11 +32,13 @@ const HomePage = () => {
             <Route path="/profile/:id" element={<Profile />} />
           </Routes>
         </Grid>
-        <Grid item lg={3} className="relative">
-          <div className="sticky top-0 w-full">
-            <HomeRight />
-          </div>
-        </Grid>
+        {location.pathname === "/" && (
+          <Grid item lg={3} className="relative">
+            <div className="sticky top-0 w-full">
+              <HomeRight />
+            </div>
+          </Grid>
+        )}
       </Grid>
     </div>
   );
