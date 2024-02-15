@@ -5,8 +5,10 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import { useSelector } from "react-redux";
 
 const Sidebar = () => {
+  const { auth } = useSelector((store) => store);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleOpen = (event) => {
@@ -36,8 +38,15 @@ const Sidebar = () => {
           <div className="flex items-center space-x-3">
             <Avatar src="https://i.namu.wiki/i/P2JXK0XHZDt7RNrs2oqNilKr6N5scsfALk2dRzcGqg018BwRPYXllLqb0eXf77kVHeRhylLl-yfZUup_Ds5KiAYi3CPS35qpfN5OGJdazQDlJxnU1XquKiEg78Ab3Rp1o8yn-ITIqVYIkLe5EKW_-g.webp" />
             <div>
-              <p className="font-bold">MydayForever</p>
-              <p className="opacity-70">@mydayforever</p>
+              <p className="font-bold">
+                {auth.user?.firstName + auth.user?.lastName}
+              </p>
+              <p className="opacity-70">
+                @
+                {auth.user?.firstName.toLowerCase() +
+                  "_" +
+                  auth.user?.lastName.toLowerCase()}
+              </p>
             </div>
           </div>
           <Button

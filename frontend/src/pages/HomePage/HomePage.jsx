@@ -16,6 +16,8 @@ const HomePage = () => {
   const jwt = localStorage.getItem("jwt");
   const { auth } = useSelector((store) => store);
 
+  console.log("auth ", auth);
+
   useEffect(() => {
     dispatch(getProfileAction(jwt));
   }, []);
