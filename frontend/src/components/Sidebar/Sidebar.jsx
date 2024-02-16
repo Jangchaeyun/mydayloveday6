@@ -6,9 +6,11 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
   const { auth } = useSelector((store) => store);
+  const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleOpen = (event) => {
@@ -16,6 +18,12 @@ const Sidebar = () => {
   };
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleNavigate = (item) => {
+    if (item.title == "프로필") {
+      navigate(`/profile/${auth.user?.id}`);
+    }
   };
   return (
     <Card className="card h-screen flex flex-col justify-between py-5">
@@ -25,7 +33,10 @@ const Sidebar = () => {
         </div>
         <div className="space-y-8">
           {navigationMenu.map((item) => (
-            <div className="cursor-pointer flex space-x-3 items-center">
+            <div
+              onClick={() => handleNavigate(item)}
+              className="cursor-pointer flex space-x-3 items-center"
+            >
               {item.icon}
               <p className="text-xl">{item.title}</p>
             </div>

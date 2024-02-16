@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Avatar, Button, Card } from "@mui/material";
 import Tabs from "@mui/material/Tabs";
@@ -6,6 +6,8 @@ import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import PostCard from "../../components/Post/PostCard";
 import UserReelCard from "../../components/Reels/UserReelCard";
+import { useSelector } from "react-redux";
+import ProfileModal from "./ProfileModal";
 
 const tabs = [
   { value: "post", name: "포스트" },
@@ -17,7 +19,11 @@ const posts = [1, 1, 1, 1];
 const reels = [1, 1, 1, 1];
 const savedPost = [1, 1, 1, 1];
 const Profile = () => {
+  const { auth } = useSelector((store) => store);
   const { id } = useParams();
+  const [open, setOpen] = useState(false);
+  const handleOpenProfileModal = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const [value, setValue] = React.useState("post");
 
   const handleChange = (event, newValue) => {
@@ -41,6 +47,7 @@ const Profile = () => {
           />
           {true ? (
             <Button
+              onClick={() => handleOpenProfileModal()}
               sx={{ borderRadius: "20px" }}
               variant="outlined"
               color="success"
@@ -59,8 +66,15 @@ const Profile = () => {
         </div>
         <div className="p-5">
           <div>
-            <h1 className="py-1 font-bold text-xl">MydayForever</h1>
-            <p>@mydayforever</p>
+            <h1 className="py-1 font-bold text-xl">
+              {auth.user?.firstName + auth.user?.lastName}
+            </h1>
+            <p>
+              @
+              {auth.user?.firstName.toLowerCase() +
+                "_" +
+                auth.user?.lastName.toLowerCase()}
+            </p>
           </div>
           <div className="flex gap-5 items-center py-3">
             <span>41 포스트</span>
@@ -112,6 +126,9 @@ const Profile = () => {
           </div>
         </section>
       </div>
+      <section>
+        <ProfileModal open={open} handleClose={handleClose} />
+      </section>
     </Card>
   );
 };
