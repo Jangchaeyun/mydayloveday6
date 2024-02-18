@@ -1,7 +1,6 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Avatar from "@mui/material/Avatar";
 import Modal from "@mui/material/Modal";
 import { useDispatch } from "react-redux";
@@ -60,7 +59,7 @@ export default function ProfileModal({ open, handleClose }) {
                 </IconButton>
                 <p>프로필 수정</p>
               </div>
-              <Button type="submit" color="success" onClick={handleClose}>
+              <Button type="submit" color="success">
                 저장
               </Button>
             </div>

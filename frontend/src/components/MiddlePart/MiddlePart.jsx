@@ -8,7 +8,7 @@ import ArticleIcon from "@mui/icons-material/Article";
 import PostCard from "../Post/PostCard";
 
 const story = [1, 1, 1, 1, 1, 1];
-const posts = [1, 1, 1, 1, 1, 1, 1];
+const posts = [1, 1, 1, 1, 1, 1];
 const MiddlePart = () => {
   const handleOpenCreatePostModal = () => {
     console.log("open post model");
@@ -34,6 +34,7 @@ const MiddlePart = () => {
         <div className="flex justify-between">
           <Avatar />
           <input
+            onClick={handleOpenCreatePostModal}
             readOnly
             className="outline-none w-[90%] bg-slate-100 rounded-full px-5 bg-transparent border-[#4AB34A	] border"
             type="text"
