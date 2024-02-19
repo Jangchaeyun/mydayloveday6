@@ -2,7 +2,10 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import ImageIcon from "@mui/icons-material/Image";
 import Modal from "@mui/material/Modal";
+import { useFormik } from "formik";
+import { Avatar, Card, IconButton } from "@mui/material";
 
 const style = {
   position: "absolute",
@@ -18,6 +21,7 @@ const style = {
 };
 
 const CreatePostModal = ({ handleClose, open }) => {
+  const formik = useFormik();
   return (
     <Modal
       open={open}
@@ -26,12 +30,43 @@ const CreatePostModal = ({ handleClose, open }) => {
       aria-describedby="modal-modal-description"
     >
       <Box sx={style}>
-        <Typography id="modal-modal-title" variant="h6" component="h2">
-          Text in a modal
-        </Typography>
-        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-          Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-        </Typography>
+        <form onSubmit={formik.handleSubmit}>
+          <div>
+            <div className="flex space-x-4 items-center">
+              <Avatar />
+              <div>
+                <p className="font-bold text-lg">cherrymyday</p>
+                <p className="text-sm">@cherry_myday</p>
+              </div>
+            </div>
+            <textarea
+              placeholder="캡션 쓰기...."
+              name="caption"
+              id="caption"
+              onChange={formik.handleChange}
+              value={formik.values.caption}
+              rows="4"
+            ></textarea>
+
+            <div className="flex space-x-5 items-center mt-5">
+              <div>
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleSelectImage}
+                  style={{ display: "none" }}
+                  id="image-input"
+                />
+                <label htmlFor="image-input">
+                  <IconButton>
+                    <ImageIcon />
+                  </IconButton>
+                </label>
+                <span>이미지</span>
+              </div>
+            </div>
+          </div>
+        </form>
       </Box>
     </Modal>
   );
