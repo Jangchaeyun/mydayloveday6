@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import ImageIcon from "@mui/icons-material/Image";
+import VideoCallIcon from "@mui/icons-material/VideoCall";
 import Modal from "@mui/material/Modal";
 import { useFormik } from "formik";
 import { Avatar, Card, IconButton } from "@mui/material";
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const style = {
   position: "absolute",
@@ -21,7 +24,22 @@ const style = {
 };
 
 const CreatePostModal = ({ handleClose, open }) => {
-  const formik = useFormik();
+  const [selectedImage, setSelectedImage] = useState();
+  const [selectedVideo, setSelectedVideo] = useState();
+  const [isLoading, setIsLoading] = useState(false);
+  const handleSelectImage = () => {};
+
+  const handleSelectVideo = () => {};
+  const formik = useFormik({
+    initialValues: {
+      caption: "",
+      image: "",
+      video: "",
+    },
+    onSubmit: (values) => {
+      console.log("formik values ", values);
+    },
+  });
   return (
     <Modal
       open={open}
@@ -58,15 +76,51 @@ const CreatePostModal = ({ handleClose, open }) => {
                   id="image-input"
                 />
                 <label htmlFor="image-input">
-                  <IconButton>
+                  <IconButton color="success">
                     <ImageIcon />
                   </IconButton>
                 </label>
                 <span>이미지</span>
               </div>
+              <div>
+                <input
+                  type="file"
+                  accept="video/*"
+                  onChange={handleSelectVideo}
+                  style={{ display: "none" }}
+                  id="video-input"
+                />
+                <label htmlFor="video-input">
+                  <IconButton color="success">
+                    <VideoCallIcon />
+                  </IconButton>
+                </label>
+                <span>비디오</span>
+              </div>
+            </div>
+            {selectedImage && (
+              <div>
+                <img className="h-[10rem]" src={selectedImage} alt="" />
+              </div>
+            )}
+            <div className="flex w-full justify-end">
+              <Button
+                variant="contained"
+                type="submit"
+                sx={{ borderRadius: "1.5rem" }}
+              >
+                쓰기
+              </Button>
             </div>
           </div>
         </form>
+        <Backdrop
+          sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+          open={isLoading}
+          onClick={handleClose}
+        >
+          <CircularProgress color="inherit" />
+        </Backdrop>
       </Box>
     </Modal>
   );
