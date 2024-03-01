@@ -10457,3 +10457,152 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.springframework.tooling.boot.ls 1 0 2024-02-20 21:22:20.353
 !MESSAGE Started Boot LS process
+!SESSION 2024-03-01 19:02:11.555 -----------------------------------------------
+eclipse.buildId=4.21.0.202312011804
+java.version=17.0.9
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.springframework.boot.ide.branding.sts4
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.springframework.boot.ide.branding.sts4
+
+!ENTRY org.eclipse.emf.ecore 2 0 2024-03-01 19:02:14.757
+!MESSAGE Both 'org.eclipse.jst.j2ee.core' and 'org.eclipse.jst.j2ee.core' register a package for 'application.xmi'
+
+!ENTRY org.eclipse.jface 2 0 2024-03-01 19:02:40.262
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2024-03-01 19:02:40.262
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.navigate.open.type"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.lsp4e.symbolinworkspace"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-03-01 19:02:55.521
+!MESSAGE Command list starting LS: org.springframework.tooling.boot.ls
+START:
+C:\spring-tool-suite-4-4.21.0.RELEASE-e4.30.0-win32.win32.x86_64.self-extracting\sts-4.21.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.9.v20231028-0858\jre\bin\javaw.exe
+-cp
+C:\spring-tool-suite-4-4.21.0.RELEASE-e4.30.0-win32.win32.x86_64.self-extracting\sts-4.21.0.RELEASE\plugins\org.springframework.tooling.boot.ls_1.51.0.202312011752\servers\spring-boot-language-server\BOOT-INF\classes;C:\spring-tool-suite-4-4.21.0.RELEASE-e4.30.0-win32.win32.x86_64.self-extracting\sts-4.21.0.RELEASE\plugins\org.springframework.tooling.boot.ls_1.51.0.202312011752\servers\spring-boot-language-server\BOOT-INF\lib\*
+-Dsts.lsp.client=eclipse
+-Dlsp.completions.indentation.enable=true
+-Xmx1024m
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:TieredStopAtLevel=1
+-Xlog:jni+resolve=off
+-Dspring.config.location=file:C:\spring-tool-suite-4-4.21.0.RELEASE-e4.30.0-win32.win32.x86_64.self-extracting\sts-4.21.0.RELEASE\plugins\org.springframework.tooling.boot.ls_1.51.0.202312011752\servers\spring-boot-language-server\BOOT-INF\classes\application.properties
+-XX:ErrorFile=D:/Project/mydayloveday6/backend/.metadata/.plugins/org.springframework.tooling.boot.ls/fatal-error-spring-boot_1709287375421
+org.springframework.ide.vscode.boot.app.BootLanguageServerBootApp
+--languageserver.hover-timeout=225
+END
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-03-01 19:02:55.601
+!MESSAGE DelegatingStreamConnectionProvider - Starting Boot LS
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2024-03-01 19:02:55.690
+!MESSAGE Started org.springframework.tooling.boot.ls LS process 3256
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-03-01 19:03:07.146
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\zzang'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-03-01 19:03:07.547
+!MESSAGE Boot project ADDED: mydayloveday6
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-03-01 19:03:07.582
+!MESSAGE Starting Boot LS...
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-03-01 19:03:07.604
+!MESSAGE Started Boot LS process
+
+!ENTRY org.eclipse.equinox.p2.artifact.repository 2 0 2024-03-01 19:03:17.364
+!MESSAGE No digest algorithm is available to verify download of osgi.bundle,com.genuitec.eclipse.json.simple,2024.1.0.202402281519.
+
+!ENTRY org.eclipse.equinox.p2.artifact.repository 2 0 2024-03-01 19:03:17.368
+!MESSAGE No digest algorithm is available to verify download of osgi.bundle,com.genuitec.eclipse.core.common.platform,2024.1.0.202402281519.
+
+!ENTRY org.eclipse.equinox.p2.artifact.repository 2 0 2024-03-01 19:03:17.372
+!MESSAGE No digest algorithm is available to verify download of osgi.bundle,com.genuitec.eclipse.core.common.rss,2024.1.0.202402281519.
+
+!ENTRY org.eclipse.equinox.p2.artifact.repository 2 0 2024-03-01 19:03:17.376
+!MESSAGE No digest algorithm is available to verify download of osgi.bundle,com.genuitec.eclipse.inlinesearch,2024.1.0.202402281519.
+
+!ENTRY org.eclipse.equinox.p2.artifact.repository 2 0 2024-03-01 19:03:18.067
+!MESSAGE No digest algorithm is available to verify download of osgi.bundle,com.genuitec.eclipse.meexplorer,2024.1.0.202402281519.
+
+!ENTRY org.eclipse.equinox.p2.artifact.repository 2 0 2024-03-01 19:03:18.392
+!MESSAGE No digest algorithm is available to verify download of osgi.bundle,com.genuitec.eclipse.patches,2024.1.0.202402281519.
+
+!ENTRY org.eclipse.equinox.p2.artifact.repository 2 0 2024-03-01 19:03:18.418
+!MESSAGE No digest algorithm is available to verify download of osgi.bundle,com.genuitec.eclipse.meexplorer.jdt,2024.1.0.202402281519.
+
+!ENTRY org.eclipse.equinox.p2.artifact.repository 2 0 2024-03-01 19:03:19.445
+!MESSAGE No digest algorithm is available to verify download of osgi.bundle,com.genuitec.eclipse.startup,2024.1.0.202402281519.
+
+!ENTRY org.eclipse.equinox.p2.artifact.repository 2 0 2024-03-01 19:03:19.498
+!MESSAGE No digest algorithm is available to verify download of osgi.bundle,com.genuitec.eclipse.startup.workspace,2024.1.0.202402281519.
+
+!ENTRY org.eclipse.equinox.p2.artifact.repository 2 0 2024-03-01 19:03:19.587
+!MESSAGE No digest algorithm is available to verify download of osgi.bundle,com.genuitec.eclipse.theming.base,2024.1.0.202402281519.
+
+!ENTRY org.eclipse.equinox.p2.artifact.repository 2 0 2024-03-01 19:03:20.940
+!MESSAGE No digest algorithm is available to verify download of osgi.bundle,com.genuitec.eclipse.theming.base.win,2024.1.0.202402281519.
+
+!ENTRY org.eclipse.equinox.p2.artifact.repository 2 0 2024-03-01 19:03:21.753
+!MESSAGE No digest algorithm is available to verify download of osgi.bundle,com.genuitec.eclipse.theming.css,2024.1.0.202402281519.
+
+!ENTRY org.eclipse.equinox.p2.artifact.repository 2 0 2024-03-01 19:03:21.761
+!MESSAGE No digest algorithm is available to verify download of osgi.bundle,com.genuitec.eclipse.theming.core,2024.1.0.202402281519.
+
+!ENTRY org.eclipse.equinox.p2.artifact.repository 2 0 2024-03-01 19:03:22.021
+!MESSAGE No digest algorithm is available to verify download of osgi.bundle,com.genuitec.eclipse.theming.elevation.win32,2024.1.0.202402281519.
+
+!ENTRY org.eclipse.equinox.p2.artifact.repository 2 0 2024-03-01 19:03:22.742
+!MESSAGE No digest algorithm is available to verify download of osgi.bundle,com.genuitec.eclipse.theming.epl,2024.1.0.202402281519.
+
+!ENTRY org.eclipse.equinox.p2.artifact.repository 2 0 2024-03-01 19:03:23.571
+!MESSAGE No digest algorithm is available to verify download of osgi.bundle,com.genuitec.eclipse.theming.icon.designer,2024.1.0.202402281519.
+
+!ENTRY org.eclipse.equinox.p2.artifact.repository 2 0 2024-03-01 19:03:25.682
+!MESSAGE No digest algorithm is available to verify download of osgi.bundle,com.genuitec.eclipse.theming.scrollbar,2024.1.0.202402281519.
+
+!ENTRY org.eclipse.equinox.p2.artifact.repository 2 0 2024-03-01 19:03:26.024
+!MESSAGE No digest algorithm is available to verify download of osgi.bundle,com.genuitec.eclipse.theming.scrollbar.win,2024.1.0.202402281519.
+
+!ENTRY org.eclipse.equinox.p2.artifact.repository 2 0 2024-03-01 19:03:26.470
+!MESSAGE No digest algorithm is available to verify download of osgi.bundle,com.genuitec.eclipse.theming.ui,2024.1.0.202402281519.
+
+!ENTRY org.eclipse.equinox.p2.artifact.repository 2 0 2024-03-01 19:03:27.046
+!MESSAGE No digest algorithm is available to verify download of osgi.bundle,com.genuitec.eclipse.ui.common.platform,2024.1.0.202402281519.
+
+!ENTRY org.eclipse.equinox.p2.artifact.repository 2 0 2024-03-01 19:03:27.397
+!MESSAGE No digest algorithm is available to verify download of osgi.bundle,com.genuitec.eclipse.webclipse.evergreen,2024.1.0.202402281519.
+
+!ENTRY org.eclipse.equinox.p2.artifact.repository 2 0 2024-03-01 19:03:28.226
+!MESSAGE No digest algorithm is available to verify download of osgi.bundle,com.genuitec.eclipse.webicons,2024.1.0.202402281519.
+
+!ENTRY org.eclipse.equinox.p2.artifact.repository 2 0 2024-03-01 19:03:28.480
+!MESSAGE No digest algorithm is available to verify download of osgi.bundle,com.genuitec.eclipsecolortheme.api,2024.1.0.202402281519.
+
+!ENTRY org.eclipse.equinox.p2.artifact.repository 2 0 2024-03-01 19:03:28.583
+!MESSAGE No digest algorithm is available to verify download of org.eclipse.update.feature,com.genuitec.eclipse.theming.core.feature,2024.1.0.202402281519.
+
+!ENTRY org.eclipse.equinox.p2.artifact.repository 2 0 2024-03-01 19:03:28.773
+!MESSAGE No digest algorithm is available to verify download of org.eclipse.update.feature,com.genuitec.eclipse.theming.designer.feature,2024.1.0.202402281519.
+
+!ENTRY org.eclipse.equinox.p2.artifact.repository 2 0 2024-03-01 19:03:29.346
+!MESSAGE No digest algorithm is available to verify download of org.eclipse.update.feature,com.genuitec.eclipse.theming.feature,2024.1.0.202402281519.

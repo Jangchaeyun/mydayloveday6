@@ -58,6 +58,7 @@ const CreatePostModal = ({ handleClose, open }) => {
               </div>
             </div>
             <textarea
+              className="outline-none w-full mt-5 p-2 bg-transparent border border-[#3b4054] rounded-sm"
               placeholder="캡션 쓰기...."
               name="caption"
               id="caption"
@@ -108,6 +109,7 @@ const CreatePostModal = ({ handleClose, open }) => {
                 variant="contained"
                 type="submit"
                 sx={{ borderRadius: "1.5rem" }}
+                color="success"
               >
                 쓰기
               </Button>
