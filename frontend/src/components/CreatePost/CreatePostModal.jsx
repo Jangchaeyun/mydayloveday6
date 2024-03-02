@@ -9,6 +9,7 @@ import { useFormik } from "formik";
 import { Avatar, Card, IconButton } from "@mui/material";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
+import { uploadToCloudinary } from "../../utils/uploadToCloudniry";
 
 const style = {
   position: "absolute",
@@ -27,9 +28,21 @@ const CreatePostModal = ({ handleClose, open }) => {
   const [selectedImage, setSelectedImage] = useState();
   const [selectedVideo, setSelectedVideo] = useState();
   const [isLoading, setIsLoading] = useState(false);
-  const handleSelectImage = () => {};
+  const handleSelectImage = async (event) => {
+    setIsLoading(true);
+    const imageUrl = await uploadToCloudinary(event.target.files[0], "image");
+    setSelectedImage(imageUrl);
+    setIsLoading(false);
+    formik.setFieldValue("image", imageUrl);
+  };
 
-  const handleSelectVideo = () => {};
+  const handleSelectVideo = async (event) => {
+    setIsLoading(true);
+    const videoUrl = await uploadToCloudinary(event.target.files[0], "video");
+    setSelectedImage(videoUrl);
+    setIsLoading(false);
+    formik.setFieldValue("image", videoUrl);
+  };
   const formik = useFormik({
     initialValues: {
       caption: "",
@@ -77,7 +90,7 @@ const CreatePostModal = ({ handleClose, open }) => {
                   id="image-input"
                 />
                 <label htmlFor="image-input">
-                  <IconButton color="success">
+                  <IconButton color="success" component="span">
                     <ImageIcon />
                   </IconButton>
                 </label>
@@ -92,7 +105,7 @@ const CreatePostModal = ({ handleClose, open }) => {
                   id="video-input"
                 />
                 <label htmlFor="video-input">
-                  <IconButton color="success">
+                  <IconButton color="success" component="span">
                     <VideoCallIcon />
                   </IconButton>
                 </label>
