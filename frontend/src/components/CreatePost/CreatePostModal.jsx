@@ -10,6 +10,8 @@ import { Avatar, Card, IconButton } from "@mui/material";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
 import { uploadToCloudinary } from "../../utils/uploadToCloudniry";
+import { useDispatch } from "react-redux";
+import { createPostAction } from "../../Redux/Post/post.action";
 
 const style = {
   position: "absolute",
@@ -28,6 +30,7 @@ const CreatePostModal = ({ handleClose, open }) => {
   const [selectedImage, setSelectedImage] = useState();
   const [selectedVideo, setSelectedVideo] = useState();
   const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useDispatch();
   const handleSelectImage = async (event) => {
     setIsLoading(true);
     const imageUrl = await uploadToCloudinary(event.target.files[0], "image");
@@ -51,6 +54,7 @@ const CreatePostModal = ({ handleClose, open }) => {
     },
     onSubmit: (values) => {
       console.log("formik values ", values);
+      dispatch(createPostAction(values));
     },
   });
   return (

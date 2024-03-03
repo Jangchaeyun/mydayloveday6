@@ -20,7 +20,7 @@ import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 
-const PostCard = () => {
+const PostCard = ({ item }) => {
   return (
     <Card className="">
       <CardHeader
@@ -30,20 +30,18 @@ const PostCard = () => {
             <MoreVertIcon />
           </IconButton>
         }
-        title="loveday6"
-        subheader="@loveday6"
+        title={item.user.firstName + " " + item.user.lastName}
+        subheader={
+          "@" +
+          item.user.firstName.toLowerCase() +
+          "_" +
+          item.user.lastName.toLowerCase()
+        }
       />
-      <CardMedia
-        component="img"
-        height="194"
-        image="https://koreajoongangdaily.joins.com/data/photo/2022/02/24/12fdb30e-ab8f-4d19-8fc0-4193ae8b9cd2.jpg"
-        alt="image"
-      />
+      <CardMedia component="img" height="194" image={item.image} alt="image" />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the
-          mussels, if you like.
+          {item.caption}
         </Typography>
       </CardContent>
       <CardActions className="flex justify-between" disableSpacing>
