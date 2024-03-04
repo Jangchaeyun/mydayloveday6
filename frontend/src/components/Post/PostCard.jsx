@@ -8,7 +8,7 @@ import {
   CardContent,
   Typography,
   CardActions,
-  ExpandMore,
+  Divider,
 } from "@mui/material";
 import { red } from "@mui/material/colors";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
@@ -58,6 +58,31 @@ const PostCard = ({ item }) => {
           </IconButton>
         </div>
       </CardActions>
+      <section>
+        <div className="flex items-center space-x-5 mx-3 my-5">
+          <Avatar sx={{}} />
+          <input
+            onKeyPress={(e) => {
+              if (e.key == "Enter") {
+                console.log("enter pressed ----- ", e.target.value);
+              }
+            }}
+            className="w-full outline-none bg-transparent border border-[#3b4054] rounded-full px-5 py-2"
+            type="text"
+            placeholder="답글 달기..."
+          />
+        </div>
+        <Divider />
+        <div className="mx-3 space-y-2 my-5 text-xs">
+          <div className="flex justify-between items-center">
+            <div className="flex items-center space-x-5">
+              <Avatar sx={{ height: "2rem", width: "2rem", fontSize: ".8rem" }}>
+                C
+              </Avatar>
+            </div>
+          </div>
+        </div>
+      </section>
     </Card>
   );
 };
