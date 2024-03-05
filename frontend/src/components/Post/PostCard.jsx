@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Card,
   CardHeader,
@@ -21,6 +21,10 @@ import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 
 const PostCard = ({ item }) => {
+  const [showComments, setShowComments] = useState(false);
+  const handleShowComment = () => {
+    setShowComments(!showComments);
+  };
   return (
     <Card className="">
       <CardHeader
@@ -50,7 +54,9 @@ const PostCard = ({ item }) => {
             {true ? <FavoriteIcon /> : <FavoriteBorderIcon />}
           </IconButton>
           <IconButton>{<ShareIcon />}</IconButton>
-          <IconButton>{<ChatBubbleIcon />}</IconButton>
+          <IconButton onClick={handleShowComment}>
+            {<ChatBubbleIcon />}
+          </IconButton>
         </div>
         <div>
           <IconButton>
@@ -58,31 +64,36 @@ const PostCard = ({ item }) => {
           </IconButton>
         </div>
       </CardActions>
-      <section>
-        <div className="flex items-center space-x-5 mx-3 my-5">
-          <Avatar sx={{}} />
-          <input
-            onKeyPress={(e) => {
-              if (e.key == "Enter") {
-                console.log("enter pressed ----- ", e.target.value);
-              }
-            }}
-            className="w-full outline-none bg-transparent border border-[#3b4054] rounded-full px-5 py-2"
-            type="text"
-            placeholder="답글 달기..."
-          />
-        </div>
-        <Divider />
-        <div className="mx-3 space-y-2 my-5 text-xs">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-5">
-              <Avatar sx={{ height: "2rem", width: "2rem", fontSize: ".8rem" }}>
-                C
-              </Avatar>
+      {showComments && (
+        <section>
+          <div className="flex items-center space-x-5 mx-3 my-5">
+            <Avatar sx={{}} />
+            <input
+              onKeyPress={(e) => {
+                if (e.key == "Enter") {
+                  console.log("enter pressed ----- ", e.target.value);
+                }
+              }}
+              className="w-full outline-none bg-transparent border border-[#3b4054] rounded-full px-5 py-2"
+              type="text"
+              placeholder="답글 달기..."
+            />
+          </div>
+          <Divider />
+          <div className="mx-3 space-y-2 my-5 text-xs">
+            <div className="flex justify-between items-center">
+              <div className="flex items-center space-x-5">
+                <Avatar
+                  sx={{ height: "2rem", width: "2rem", fontSize: ".8rem" }}
+                >
+                  C
+                </Avatar>
+                <p>안녕하세요!!</p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
     </Card>
   );
 };
