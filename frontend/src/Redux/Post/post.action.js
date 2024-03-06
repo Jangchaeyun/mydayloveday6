@@ -70,11 +70,11 @@ export const createCommentAction = (reqData) => async (dispatch) => {
   dispatch({ type: CREATE_COMMENT_REQUEST });
   try {
     const { data } = await api.post(
-      `/api/comments/${reqData.postId}`,
+      `/api/comments/post/${reqData.postId}`,
       reqData.data
     );
     dispatch({ type: CREATE_COMMENT_SUCCESS, playload: data });
-    console.log("created post ", data);
+    console.log("created comment ", data);
   } catch (error) {
     console.log("error ", error);
     dispatch({ type: CREATE_COMMENT_FAILURE, payload: error });

@@ -15,15 +15,27 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShareIcon from "@mui/icons-material/Share";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
+import { useDispatch, useSelector } from "react-redux";
+import { createCommentAction } from "../../Redux/Post/post.action";
 
 const PostCard = ({ item }) => {
   const [showComments, setShowComments] = useState(false);
+  const dispatch = useDispatch();
+  const { post } = useSelector((store) => store);
   const handleShowComment = () => {
     setShowComments(!showComments);
+  };
+  const handleCreateComment = (content) => {
+    const reqData = {
+      postId: item.id,
+      data: {
+        content,
+      },
+    };
+    dispatch(createCommentAction(reqData));
   };
   return (
     <Card className="">
@@ -71,6 +83,7 @@ const PostCard = ({ item }) => {
             <input
               onKeyPress={(e) => {
                 if (e.key == "Enter") {
+                  handleCreateComment(e.target.value);
                   console.log("enter pressed ----- ", e.target.value);
                 }
               }}
@@ -81,16 +94,16 @@ const PostCard = ({ item }) => {
           </div>
           <Divider />
           <div className="mx-3 space-y-2 my-5 text-xs">
-            <div className="flex justify-between items-center">
+            {item.comments?.map((comment) => (
               <div className="flex items-center space-x-5">
                 <Avatar
                   sx={{ height: "2rem", width: "2rem", fontSize: ".8rem" }}
                 >
-                  C
+                  {comment.user.firstName[0]}
                 </Avatar>
-                <p>안녕하세요!!</p>
+                <p>{comment.content}</p>
               </div>
-            </div>
+            ))}
           </div>
         </section>
       )}

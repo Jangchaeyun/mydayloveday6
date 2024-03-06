@@ -42,7 +42,7 @@ const CreatePostModal = ({ handleClose, open }) => {
   const handleSelectVideo = async (event) => {
     setIsLoading(true);
     const videoUrl = await uploadToCloudinary(event.target.files[0], "video");
-    setSelectedImage(videoUrl);
+    handleSelectVideo(videoUrl);
     setIsLoading(false);
     formik.setFieldValue("image", videoUrl);
   };
