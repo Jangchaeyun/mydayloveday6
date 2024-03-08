@@ -19,12 +19,16 @@ import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import { useDispatch, useSelector } from "react-redux";
-import { createCommentAction } from "../../Redux/Post/post.action";
+import {
+  createCommentAction,
+  likePostAction,
+} from "../../Redux/Post/post.action";
+import { isLikedByReqUser } from "../../utils/isLikedByReqUser";
 
 const PostCard = ({ item }) => {
   const [showComments, setShowComments] = useState(false);
   const dispatch = useDispatch();
-  const { post } = useSelector((store) => store);
+  const { post, auth } = useSelector((store) => store);
   const handleShowComment = () => {
     setShowComments(!showComments);
   };
@@ -37,6 +41,11 @@ const PostCard = ({ item }) => {
     };
     dispatch(createCommentAction(reqData));
   };
+  const handleLikePost = () => {
+    dispatch(likePostAction(item.id));
+  };
+
+  console.log("is like ", isLikedByReqUser(auth.user.id, item));
   return (
     <Card className="">
       <CardHeader
@@ -54,7 +63,7 @@ const PostCard = ({ item }) => {
           item.user.lastName.toLowerCase()
         }
       />
-      <CardMedia component="img" height="194" image={item.image} alt="image" />
+      <CardMedia component="img" height="100" image={item.image} alt="image" />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
           {item.caption}
@@ -62,8 +71,12 @@ const PostCard = ({ item }) => {
       </CardContent>
       <CardActions className="flex justify-between" disableSpacing>
         <div>
-          <IconButton>
-            {true ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+          <IconButton onClick={handleLikePost}>
+            {isLikedByReqUser(auth.user.id, item) ? (
+              <FavoriteIcon />
+            ) : (
+              <FavoriteBorderIcon />
+            )}
           </IconButton>
           <IconButton>{<ShareIcon />}</IconButton>
           <IconButton onClick={handleShowComment}>

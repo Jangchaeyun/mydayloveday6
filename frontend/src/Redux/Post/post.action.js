@@ -21,7 +21,7 @@ export const createPostAction = (postData) => async (dispatch) => {
   dispatch({ type: CREATE_POST_REQUEST });
   try {
     const { data } = await api.post("/api/posts", postData);
-    dispatch({ type: CREATE_POST_SUCCESS, playload: data });
+    dispatch({ type: CREATE_POST_SUCCESS, payload: data });
     console.log("created post ", data);
   } catch (error) {
     console.log("error ", error);
@@ -45,7 +45,7 @@ export const getUsersPostAction = (userId) => async (dispatch) => {
   dispatch({ type: GET_USERS_POST_REQUEST });
   try {
     const { data } = await api.get(`/api/posts/users/${userId}`);
-    dispatch({ type: GET_USERS_POST_SUCCESS, playload: data });
+    dispatch({ type: GET_USERS_POST_SUCCESS, payload: data });
     console.log("get user post ", data);
   } catch (error) {
     console.log("error ", error);
@@ -53,11 +53,11 @@ export const getUsersPostAction = (userId) => async (dispatch) => {
   }
 };
 
-const likePostAction = (postId) => async (dispatch) => {
+export const likePostAction = (postId) => async (dispatch) => {
   dispatch({ type: LIKE_POST_REQUEST });
   try {
-    const { data } = await api.get(`/api/posts/like/${postId}`);
-    dispatch({ type: LIKE_POST_SUCCESS, playload: data });
+    const { data } = await api.put(`/api/posts/like/${postId}`);
+    dispatch({ type: LIKE_POST_SUCCESS, payload: data });
     console.log("like post ", data);
   } catch (error) {
     console.log("error ", error);
@@ -73,7 +73,7 @@ export const createCommentAction = (reqData) => async (dispatch) => {
       `/api/comments/post/${reqData.postId}`,
       reqData.data
     );
-    dispatch({ type: CREATE_COMMENT_SUCCESS, playload: data });
+    dispatch({ type: CREATE_COMMENT_SUCCESS, payload: data });
     console.log("created comment ", data);
   } catch (error) {
     console.log("error ", error);
