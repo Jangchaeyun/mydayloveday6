@@ -31,7 +31,7 @@ export const postReducer = (state = initialState, action) => {
       return {
         ...state,
         post: action.payload,
-        posts: [action.payload, ...state.post],
+        posts: [action.payload, ...state.posts],
         loading: false,
         error: null,
       };
@@ -47,9 +47,9 @@ export const postReducer = (state = initialState, action) => {
       return {
         ...state,
         like: action.payload,
-        // posts: state.posts.map((item) =>
-        //   item.id === action.payload.id ? action.payload : item
-        // ),
+        posts: state.posts.map((item) =>
+          item.id === action.payload.id ? action.payload : item
+        ),
         loading: false,
         error: null,
       };

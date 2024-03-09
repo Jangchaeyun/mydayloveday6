@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import ImageIcon from "@mui/icons-material/Image";
 import VideoCallIcon from "@mui/icons-material/VideoCall";
 import Modal from "@mui/material/Modal";
 import { useFormik } from "formik";
-import { Avatar, Card, IconButton } from "@mui/material";
+import { Avatar, IconButton } from "@mui/material";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
 import { uploadToCloudinary } from "../../utils/uploadToCloudniry";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { createPostAction } from "../../Redux/Post/post.action";
 
 const style = {
@@ -31,6 +30,7 @@ const CreatePostModal = ({ handleClose, open }) => {
   const [selectedVideo, setSelectedVideo] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
+  const { auth } = useSelector((store) => store);
   const handleSelectImage = async (event) => {
     setIsLoading(true);
     const imageUrl = await uploadToCloudinary(event.target.files[0], "image");
@@ -42,7 +42,7 @@ const CreatePostModal = ({ handleClose, open }) => {
   const handleSelectVideo = async (event) => {
     setIsLoading(true);
     const videoUrl = await uploadToCloudinary(event.target.files[0], "video");
-    handleSelectVideo(videoUrl);
+    setSelectedVideo(videoUrl);
     setIsLoading(false);
     formik.setFieldValue("image", videoUrl);
   };
@@ -70,8 +70,15 @@ const CreatePostModal = ({ handleClose, open }) => {
             <div className="flex space-x-4 items-center">
               <Avatar />
               <div>
-                <p className="font-bold text-lg">cherrymyday</p>
-                <p className="text-sm">@cherry_myday</p>
+                <p className="font-bold text-lg">
+                  {auth.user?.firstName + auth.user?.lastName}
+                </p>
+                <p className="text-sm">
+                  @
+                  {auth.user?.firstName.toLowerCase() +
+                    "_" +
+                    auth.user?.lastName.toLowerCase()}
+                </p>
               </div>
             </div>
             <textarea
@@ -119,6 +126,11 @@ const CreatePostModal = ({ handleClose, open }) => {
             {selectedImage && (
               <div>
                 <img className="h-[10rem]" src={selectedImage} alt="" />
+              </div>
+            )}
+            {selectedVideo && (
+              <div>
+                <video className="h-[10rem]" src={selectedVideo} alt="" />
               </div>
             )}
             <div className="flex w-full justify-end">
