@@ -24,6 +24,7 @@ const Sidebar = () => {
     if (item.title == "프로필") {
       navigate(`/profile/${auth.user?.id}`);
     }
+    navigate(item.path);
   };
   return (
     <Card className="card h-screen flex flex-col justify-between py-5">
