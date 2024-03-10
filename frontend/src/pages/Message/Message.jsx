@@ -1,6 +1,10 @@
 import React from "react";
 import WestIcon from "@mui/icons-material/West";
 import Grid from "@mui/material/Grid";
+import Avatar from "@mui/material/Avatar";
+import IconButton from "@mui/material/IconButton";
+import AddIcCallIcon from "@mui/icons-material/AddIcCall";
+import VideoCallIcon from "@mui/icons-material/VideoCall";
 
 const Message = () => {
   return (
@@ -22,7 +26,25 @@ const Message = () => {
             </div>
           </div>
         </Grid>
-        <Grid className="h-full" item xs={9}></Grid>
+        <Grid className="h-full" item xs={9}>
+          <div>
+            <div className="flex justify-between items-center border-1 p-5">
+              <div className="flex items-center space-x-3">
+                <Avatar src="https://mblogthumb-phinf.pstatic.net/MjAyMTA4MjJfMjQ0/MDAxNjI5NTg1ODE2ODcz.JEcQTYuxRsD9ExHFjT6uhK5RefXxP3Oc0MWq7QLpYagg.Nc0BniHfceL8ptHmtZl7yWEXTdtqNCEEL3N1WUtgLGAg.JPEG.yevely001/IMG_3495.jpg?type=w800" />
+                <p>myday6</p>
+              </div>
+              <div className="flex space-x-3">
+                <IconButton>
+                  <AddIcCallIcon />
+                </IconButton>
+                <IconButton>
+                  <VideoCallIcon />
+                </IconButton>
+              </div>
+            </div>
+            <div>message</div>
+          </div>
+        </Grid>
       </Grid>
     </div>
   );
