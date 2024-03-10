@@ -23,8 +23,9 @@ const Sidebar = () => {
   const handleNavigate = (item) => {
     if (item.title == "프로필") {
       navigate(`/profile/${auth.user?.id}`);
+    } else {
+      navigate(item.path);
     }
-    navigate(item.path);
   };
   return (
     <Card className="card h-screen flex flex-col justify-between py-5">
