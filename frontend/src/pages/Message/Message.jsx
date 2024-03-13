@@ -5,8 +5,12 @@ import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import AddIcCallIcon from "@mui/icons-material/AddIcCall";
 import VideoCallIcon from "@mui/icons-material/VideoCall";
+import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 
 const Message = () => {
+  const handleSelectImage = () => {
+    console.log("handle select image...");
+  };
   return (
     <div>
       <Grid container className="h-screen overflow-y-hidden">
@@ -46,7 +50,27 @@ const Message = () => {
               message
             </div>
           </div>
-          <div className="sticky bottom-0 border-l"></div>
+          <div className="sticky bottom-0 border-l">
+            <div className="py-5 flex items-center justify-center space-x-5">
+              <input
+                className="bg-transparent border border-[#3b40544] rounded-full w-[90%] py-3 px-5"
+                placeholder="메시지 입력..."
+                type="text"
+              />
+              <div>
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleSelectImage}
+                  className="hidden"
+                  id="image-input"
+                />
+                <label htmlFor="image-input">
+                  <AddPhotoAlternateIcon />
+                </label>
+              </div>
+            </div>
+          </div>
         </Grid>
       </Grid>
     </div>
