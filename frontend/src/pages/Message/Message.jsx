@@ -6,6 +6,8 @@ import IconButton from "@mui/material/IconButton";
 import AddIcCallIcon from "@mui/icons-material/AddIcCall";
 import VideoCallIcon from "@mui/icons-material/VideoCall";
 import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
+import SearchUser from "../../components/SearchUser/SearchUser";
+import "./Message.css";
 
 const Message = () => {
   const handleSelectImage = () => {
@@ -24,7 +26,7 @@ const Message = () => {
               <div className="h-[83vh]">
                 <div className="">searchUser</div>
                 <div className="h-full space-y-4 mt-5 overflow-y-scroll hideScrollbar">
-                  UserChatCard
+                  <SearchUser />
                 </div>
               </div>
             </div>
