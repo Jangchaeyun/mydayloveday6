@@ -1,14 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import Avatar from "@mui/material/Avatar";
-import IconButton from "@mui/material/IconButton";
+import { useDispatch, useSelector } from "react-redux";
+import { searchUser } from "../../Redux/Auth/auth.action";
 
 const SearchUser = () => {
   const [username, setUsername] = useState("");
+  const dispatch = useDispatch();
+  const { message, auth } = useSelector((store) => store);
+
   const handleSearchUser = (e) => {
     setUsername(e.target.value);
-    console.log("search user...");
+    console.log("search user...", auth.searchUser);
+    dispatch(searchUser(username));
   };
   const handleClick = (id) => {
     console.log(id);
@@ -22,21 +27,30 @@ const SearchUser = () => {
           placeholder="사용자 검색..."
           onChange={handleSearchUser}
         />
-        {username && (
-          <Card className="absolute w-full z-10 top-[4.5rem] cursor-pointer">
-            <CardHeader
-              onClick={() => {
-                handleClick();
-                setUsername("");
-              }}
-              avatar={
-                <Avatar src="https://cdnimg.melon.co.kr/cm2/artistcrop/images/008/95/391/895391_20210927121445_500.jpg?c01cc9ef5d83939f170b548cea095692/melon/optimize/90" />
-              }
-              title="loveDay"
-              subheader={"loveday"}
-            />
-          </Card>
-        )}
+        {username &&
+          auth.searchUser.map((item) => (
+            <Card
+              key={item.id}
+              className="absolute w-full z-10 top-[4.5rem] cursor-pointer"
+            >
+              <CardHeader
+                onClick={() => {
+                  handleClick();
+                  setUsername("");
+                }}
+                avatar={
+                  <Avatar src="https://cdnimg.melon.co.kr/cm2/artistcrop/images/008/95/391/895391_20210927121445_500.jpg?c01cc9ef5d83939f170b548cea095692/melon/optimize/90" />
+                }
+                title={item.firstName + item.lastName}
+                subheader={
+                  "@" +
+                  item.firstName.toLowerCase() +
+                  "_" +
+                  item.lastName.toLowerCase()
+                }
+              />
+            </Card>
+          ))}
       </div>
     </div>
   );
